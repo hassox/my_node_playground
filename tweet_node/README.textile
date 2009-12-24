@@ -1,0 +1,21 @@
+h1. TweetStream
+
+TweetStream is an experiment in "node.js":http://nodejs.org and "Chain":http://github.com/hassox/chain
+
+It provides an example of streaming data from a single streaming connection, Twitter, and sharing it between multiple clients that can connect to node concurrently.  It does this purely by emitting an event each time a tweet is received, and having each request respond to the event.
+
+To test it out, go to the tweet_node directory
+
+Add a config.js file (use the config.js.example as a guide) to setup your username, password and track (keywords)
+
+Start the tweet stream:
+
+$ node tweet_stream.js
+
+Now, connect via curl in another terminal
+
+$ curl -vv localhost:8000
+
+Do this with a number of other terminals as well.  Even in the browser.  You can see that the connections are shared.
+
+This is only shown as an experiment.  You'll notice that if you leave the connection open from curl, it will eventually close.  The server handles the disconnection, but the clients seem to time out.

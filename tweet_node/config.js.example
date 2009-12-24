@@ -1,0 +1,7 @@
+exports.configuration = {
+  username : 'your_username',
+  password : 'your_password',
+  filterParams : {
+    track : "awesome"
+  },
+}
